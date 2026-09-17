@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#05010f">
+  <meta name="description" content="黑洞 Black Hole — 在無限地圖中移動黑洞，吞噬一切天體，吃得越多黑洞越大。">
+  <title>黑洞 · Black Hole</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="hud">
+    <div class="stat-group">
+      <div class="stat"><span class="label">質量</span><span id="score" class="value">1</span></div>
+      <div class="stat"><span class="label">等級</span><span id="level" class="value">1</span></div>
+      <div class="stat"><span class="label">吞噬</span><span id="eaten" class="value">0</span></div>
+    </div>
+    <div class="ctrl-group">
+      <button id="muteBtn" class="icon-btn" title="靜音 / 開聲">🔇</button>
+      <button id="pauseBtn" class="icon-btn" title="暫停 (P)">⏸</button>
+    </div>
+  </div>
+
+  <div id="levelToast" class="hidden"></div>
+
+  <div id="dpad" aria-hidden="true">
+    <div class="pad cross" data-dir="up">▲</div>
+    <div class="pad cross lr">
+      <span data-dir="left">◀</span>
+      <span data-dir="right">▶</span>
+    </div>
+    <div class="pad cross" data-dir="down">▼</div>
+  </div>
+
+  <div id="overlay">
+    <div class="panel">
+      <h1 class="title">🕳️ 黑洞 <span>BLACK HOLE</span></h1>
+      <p class="desc">在無限宇宙地圖中移動黑洞（WASD / 方向鍵），<br>
+        只要靠近，任何天體都會被吸入——<br>
+        <b>吃得越多，黑洞就越大，重力範圍也越廣！</b></p>
+      <ul class="tips">
+        <li>🌑 隕石 <span class="c-gray">· 低質量</span></li>
+        <li>⭐ 恆星 <span class="c-gold">· 中等質量</span></li>
+        <li>💫 彗星 <span class="c-green">· 移動快</span></li>
+        <li>🪐 行星 <span class="c-blue">· 高質量</span></li>
+        <li>☀️ 巨星 <span class="c-red">· 超大量，一口超補！</span></li>
+      </ul>
+      <button id="startBtn" class="start-btn">開始遊戲</button>
+      <p class="hint">📱 手機可用螢幕右下方向鍵　·　P 暫停</p>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
